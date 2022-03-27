@@ -1,0 +1,35 @@
+/* pages/zhuce/zhuce.wxss */
+.title {
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #21252b;
+  font-size: 44rpx;
+  margin-bottom:60rpx;
+  text-align: center;
+}
+
+.subTitle {
+  margin-bottom: 70rpx;
+}
+
+.power {
+  margin-top: 30rpx;
+  border-radius: 5px;
+  background-color: white;
+  width: 93%;
+  padding-bottom: 1rpx;
+}
+
+.choose {
+  color:#1d241d;
+  font-size: large;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  background-color: #696161;
+  width: 97%;
+  height: 200rpx;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,12 @@
+<!--pages/zhuce/zhuce.wxml-->
+<view class="title">新用户首次登录</view>
+<view class="subTitle">您希望登录为：</view>
+
+<view>
+  <view class="choose">
+  库管员
+  </view>
+  <view class="choose">
+  一般使用人员
+  </view>
+</view>

@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\Tencent\微信web开发者工具\cli.bat" cloud functions deploy --e cloud1-1g90dd08b606e1ac --n quickstartFunctions --r --project "D:\Code\wechat\warehouse_manager__cloud" --report_first --report
