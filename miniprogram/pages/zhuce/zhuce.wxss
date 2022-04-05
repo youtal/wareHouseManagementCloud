@@ -14,22 +14,30 @@
 
 .power {
   margin-top: 30rpx;
+  margin-bottom: 40rpx;
   border-radius: 5px;
   background-color: white;
   width: 93%;
   padding-bottom: 1rpx;
 }
 
-.choose {
-  color:#1d241d;
-  font-size: large;
-  margin-top: 30rpx;
-  margin-bottom: 30rpx;
-  background-color: #696161;
-  width: 97%;
-  height: 200rpx;
-  border-radius: 5px;
+.power_info {
   display: flex;
-  justify-content: center;
+  padding: 30rpx 25rpx;
   align-items: center;
+  justify-content: space-between;
+}
+
+.input {
+  align-items: center;
+  justify-content: space-between;
+  height: 100rpx;
+  font-size: large;
+  border-color: grey;
+}
+
+.submitButton {
+  margin: 30rpx;
+  align-items: center;
+  justify-content: space-between;
 }

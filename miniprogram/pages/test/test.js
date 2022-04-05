@@ -1,3 +1,5 @@
+import {myRequest} from '../../utils'
+
 // pages/test/test.js
 Page({
 
@@ -12,23 +14,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let container = getApp().globalData.container
     wx.login({
       success: res => {
-        wx.request({
-          url: 'http://localhost:8080/login', 
+        getApp().globalData.loginCode = res.code
+        console.log('calling container')
+        myRequest({
+          path: "/login",method: "GET",
           data: {
-            "code":res.code
-          },
-          header: {
-            'content-type': 'application/json' // 默认值
+            "code": res.code
           },
           success (res) {
             if(res.data == "new user"){
               wx.redirectTo({
                 url: '/pages/zhuce/zhuce',
               })
+            }else{
+              console.log('welcome')
+              wx.redirectTo({
+                url: '/pages/zhuce/zhuce',
+              })
             }
           },
+              
           fail(res){
             console.log(res)
             console.log("saf")
@@ -71,13 +79,6 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
 
   },
 

@@ -64,7 +64,9 @@ Page({
   },
 
   onClickPowerInfo(e) {
+    console.log("on click Power Info")
     const index = e.currentTarget.dataset.index;
+    console.log(e.currentTarget.dataset)
     const powerList = this.data.powerList;
     powerList[index].showItem = !powerList[index].showItem;
     if (powerList[index].title === '数据库' && !this.data.haveCreateCollection) {

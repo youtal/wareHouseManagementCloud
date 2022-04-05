@@ -1,6 +1,9 @@
 // app.js
 App({
   onLaunch: function () {
+    
+    this.globalData = {
+    };
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力');
     } else {
@@ -12,10 +15,10 @@ App({
         env: 'prod-2gd1bahie642dd9b',
         traceUser: true,
       });
-      console.log('cloud init: ');
+      this.globalData.envVersion = wx.getAccountInfoSync().miniProgram.envVersion
+      console.log(this.globalData.envVersion)
       
     }
 
-    this.globalData = {};
   }
 });
