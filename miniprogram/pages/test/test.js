@@ -9,41 +9,23 @@ Page({
   data: {
 
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let container = getApp().globalData.container
-    wx.login({
-      success: res => {
-        getApp().globalData.loginCode = res.code
-        console.log('calling container')
-        myRequest({
-          path: "/login",method: "GET",
-          data: {
-            "code": res.code
-          },
-          success (res) {
-            if(res.data == "new user"){
-              wx.redirectTo({
-                url: '/pages/zhuce/zhuce',
-              })
-            }else{
-              console.log('welcome')
-              wx.redirectTo({
-                url: '/pages/zhuce/zhuce',
-              })
-            }
-          },
-              
-          fail(res){
-            console.log(res)
-            console.log("saf")
-          }
-        })
+    console.log(getApp().globalData.openid)
+    myRequest({
+      path:'/login',
+      data:{
+        openid:getApp().globalData.openid
       },
-      fail(){console.log("login failed")}
+      success:(res)=>{
+        console.log(res)
+      },
+      fail:(res)=>{
+        console.log(res)
+        console.log('login failed')
+      }
     })
   },
 
@@ -76,17 +58,9 @@ Page({
   },
 
   /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
   },
 
   onReachBottom:function(){

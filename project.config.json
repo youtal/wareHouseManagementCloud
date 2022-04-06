@@ -39,7 +39,7 @@
     "useCompilerPlugins": false
   },
   "appid": "wx9b07bbb9b447e524",
-  "projectname": "warehouse_manager__cloud",
+  "projectname": "wareHouseManagementCloud",
   "libVersion": "2.14.1",
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
