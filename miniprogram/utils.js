@@ -31,4 +31,23 @@ function myRequest(ops){
 }
 
 
-export {myRequest}
+function delay(milSec) {
+ 
+  return new Promise(resolve => {
+ 
+    setTimeout(resolve, milSec)
+ 
+  })
+}
+
+function sleep(time){
+  let timeStamp = new Date().getTime();
+  let endTime = timeStamp + time;
+  while(true){
+  if (new Date().getTime() > endTime){
+   return;
+  } 
+  }
+ }
+
+export {myRequest, delay,sleep}
