@@ -1,4 +1,4 @@
-const { delay, sleep } = require("../../utils")
+const { delay, sleep, myRequest } = require("../../utils")
 
 // pages/page0/index.js
 const app = getApp()
@@ -9,7 +9,8 @@ Page({
    */
   data: {
     readyToLoad:false,
-    openId:""
+    openId:"",
+    projects:[{index:0,title:'C70E',id:'202204C70E'}]
   },
 
   /**
@@ -32,6 +33,26 @@ Page({
     }
   },
 
+  onTapButton:function(e){
+    console.log("click page0 button");
+    const idx = e.currentTarget.dataset.idx
+    console.log(idx);
+    wx.getUserProfile({
+      desc: 'get nickName',
+    }).then(res=>{
+      let loginRes = myRequest({
+        method:'GET',
+        path:'/login',
+        data:{
+          openId:this.data.openId,
+          project:this.data.projects[idx].title
+        },
+        success:(res)=>{
+          console.log(res.data);
+        }
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -1,1 +1,12 @@
 /* pages/page0/index.wxss */
+.title {
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #000000;
+  font-size: 44rpx;
+  margin-bottom: 40rpx;
+}
+
+.body{
+  padding-top: 60rpx;
+}

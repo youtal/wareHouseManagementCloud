@@ -23,6 +23,7 @@ function myRequest(ops){
         "content-type": "application/json"
       },
       data: ops.data,
+      success:ops.success,
       fail:ops.fail,
       complete:ops.complete,
       method:ops.method
