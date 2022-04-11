@@ -1,6 +1,7 @@
 const { myRequest } = require("../../utils");
 
 // pages/zhuce/zhuce.js
+const globalData = getApp().globalData
 Page({
 
   /**
@@ -10,19 +11,23 @@ Page({
     lastSelectCharacter:null,
     showButton:false,
     characterList:[{
-      character:'库管员',
+      title:'库管员',
+      character:'keeper',
       showItem:false,
       signUpMsg:'请输入您的姓名'
     },{
-      character:'检察员',
+      title:'检察员',
+      character:'inspector',
       showItem:false,
       signUpMsg:'请输入您的姓名'
     },{
-      character:'采购员',
+      title:'采购员',
+      character:'buyer',
       showItem:false,
       signUpMsg:'请输入您的姓名'
     },{
-      character:'一般使用人员',
+      title:'一般使用人员',
+      character:'guest',
       showItem:false,
       signUpMsg:'请输入您的姓名'
     }]
@@ -62,33 +67,13 @@ Page({
   formSubmit(e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value.input)
     console.log('form发生了submit事件，携带数据为：', this.data.lastSelectCharacter)
-    wx.checkSession({
-      success:()=>{
-        myRequest({
-          path:'/signUp',
-          data:{
-            name: e.detail.value.input,
-            character:this.data.lastSelectCharacter,
-            code:getApp().globalData.loginCode
-          },
-          method:'GET'
-        })
-      },
-      fail:()=>{
-        wx.login({
-          success:(res)=>{
-            getApp().globalData.loginCode = res.code
-            myRequest({
-              path:'/signUp',
-              data:{
-                name: e.detail.value.input,
-                character:this.data.lastSelectCharacter,
-                code:res.code
-              },
-              method:'GET'
-            })
-          }
-        })
+    myRequest({
+      path:'/signup',
+      data:{
+        openId: globalData.openId,
+        nickName: globalData.nickName,
+        userName: e.detail.value.input,
+        role : this.data.lastSelectCharacter
       }
     })
   },

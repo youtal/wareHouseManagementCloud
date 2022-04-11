@@ -1,4 +1,4 @@
-const { delay, sleep, myRequest } = require("../../utils")
+const {myRequest } = require("../../utils")
 
 // pages/page0/index.js
 const app = getApp()
@@ -21,7 +21,7 @@ Page({
     if(app.globalData.checkLogIn){
       that.setData({
         readyToLoad : true,
-        openId : app.globalData.openid
+        openId : app.globalData.openId
       })
     }else{
       app.checkLoginReadyCallback = res=>{
@@ -40,7 +40,8 @@ Page({
     wx.getUserProfile({
       desc: 'get nickName',
     }).then(res=>{
-      let loginRes = myRequest({
+      app.globalData.nickName = res.userInfo.nickName
+      myRequest({
         method:'GET',
         path:'/login',
         data:{
@@ -48,7 +49,18 @@ Page({
           project:this.data.projects[idx].title
         },
         success:(res)=>{
-          console.log(res.data);
+          if(res.data === 'new user'){
+            wx.redirectTo({
+              url: '/pages/zhuce/zhuce?envId=0'
+            })
+          }else{
+            wx.redirectTo({
+              url: `/pages/page1/index?role=${res.data}`,
+            })
+          }
+        },
+        fail:(res)=>{
+          console.log(res)
         }
       })
     })

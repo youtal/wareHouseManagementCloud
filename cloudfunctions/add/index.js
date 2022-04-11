@@ -5,5 +5,6 @@ cloud.init()
 
 // 云函数入口函数
 exports.main = async (event, context) => {
-    return cloud.getWXContext().OPENID
+    const wxContext = cloud.getWXContext()
+    return wxContext.OPENID
 }

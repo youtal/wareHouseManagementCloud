@@ -4,7 +4,7 @@
 
 <form bindsubmit="formSubmit">
   <view class="power" wx:for="{{characterList}}" wx:key="character">
-    <view bindtap="onClickPowerInfo" data-index="{{index}}" class="power_info">{{item.character}}</view>
+    <view bindtap="onClickPowerInfo" data-index="{{index}}" class="power_info">{{item.title}}</view>
     <view class="input" wx:if="{{item.showItem}}">
         <input maxlength="5" placeholder="{{item.signUpMsg}}" name="input"></input>
     </view>

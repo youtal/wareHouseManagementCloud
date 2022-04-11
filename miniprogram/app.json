@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/page0/index",
+    "pages/page1/index",
     "pages/index/index",
     "pages/test/test",
     "pages/getOpenId/index",
