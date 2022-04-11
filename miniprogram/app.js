@@ -16,15 +16,16 @@ App({
         traceUser: true,
       });
       this.globalData.envVersion = wx.getAccountInfoSync().miniProgram.envVersion
+      console.log(this.globalData.envVersion)
       wx.cloud.callFunction({
-        name:'getOpenId'
-      }).then(res=>{
-        console.log(res.result.openid)
-        this.globalData.openid = res.result.openid
+        name:"getOpenId"
+      }).then((res)=>{
+        this.globalData.openid = res.result
+        this.globalData.checkLogIn = true
+        if (this.checkLoginReadyCallback){
+          this.checkLoginReadyCallback(res.result);
+       }
       })
-      
     }
-
-  },
-
+  }
 });

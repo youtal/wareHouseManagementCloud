@@ -1,0 +1,5 @@
+<!--pages/page0/index.wxml-->
+<view class="title">选择管理项目</view>
+<view class="body" wx:for="{{projects}}" wx:key="index">
+<button type="primary" bindtap="onTapButton" data-idx="{{item.index}}">{{item.title}}</button>
+</view>
